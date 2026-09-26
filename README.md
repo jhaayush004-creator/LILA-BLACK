@@ -5,7 +5,7 @@ Level Designer scrub through individual matches and see aggregate heatmaps
 (traffic, eliminations, deaths, storm deaths, loot) across any map/date/match
 filter.
 
-**Live demo:** lila-black-xi.vercel.app : Deployed URL
+**Live demo(Deployed URL):** lila-black-xi.vercel.app
 
 ![screenshot](docs/screenshot.png)
 
