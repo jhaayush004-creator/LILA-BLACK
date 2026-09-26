@@ -5,10 +5,7 @@ Level Designer scrub through individual matches and see aggregate heatmaps
 (traffic, eliminations, deaths, storm deaths, loot) across any map/date/match
 filter.
 
-**Live demo:** https://claude.ai/artifact/LNfCR5pDmxZhtCSgvFv7MP (a self-contained
-single-file build of this exact app, for quick viewing). For the actual
-assignment submission, deploy this repo to Vercel/Netlify/GitHub Pages (see
-"Deploying" below) and put that URL here instead.
+**Live demo:** lila-black-xi.vercel.app : Deployed URL
 
 ![screenshot](docs/screenshot.png)
 
@@ -84,17 +81,7 @@ Both scripts use only the Python standard library — no `pip install` required.
 
 None. Everything is static; there is no backend/API.
 
-## Deploying
 
-Any static host works. For example, with Vercel:
-
-```bash
-npm i -g vercel   # or use the Vercel dashboard's "Import Project"
-vercel --prod
-```
-
-Or drag-and-drop the repo folder into Netlify's deploy UI, or push to a
-`gh-pages` branch / enable GitHub Pages on this repo.
 
 ## Using the tool
 
