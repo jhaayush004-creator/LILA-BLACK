@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>LILA BLACK — Player Journey</title>
+<link rel="icon" href="data:," />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<div id="app">
+
+  <div class="topbar">
+    <div class="brand">
+      <div class="title">LILA BLACK</div>
+      <div class="subtitle">PLAYER JOURNEY</div>
+    </div>
+    <div class="mode-tabs">
+      <button id="modePlayback" class="mode-tab active">Playback</button>
+      <button id="modeHeatmap" class="mode-tab">Heatmaps</button>
+    </div>
+    <div class="topbar-spacer"></div>
+    <div class="status-chip">5 days · 796 matches · 3 maps</div>
+  </div>
+
+  <div class="layout">
+
+    <!-- LEFT: filters -->
+    <div class="panel left">
+      <div class="section">
+        <div class="section-label">MAP</div>
+        <div class="map-buttons" id="mapButtons"></div>
+      </div>
+      <div class="section">
+        <div class="section-label">DATE</div>
+        <div class="field">
+          <select id="dateSelect"></select>
+        </div>
+      </div>
+      <div class="section" id="matchFieldWrap">
+        <div class="section-label">MATCH</div>
+        <div class="field">
+          <select id="matchSelect"></select>
+        </div>
+      </div>
+
+      <div id="playbackPanel">
+        <div class="section">
+          <div class="section-label">LAYERS</div>
+          <label class="check-row"><input type="checkbox" id="layer_humans"><span class="swatch dot" style="background:#ff8a4c"></span>Humans</label>
+          <label class="check-row"><input type="checkbox" id="layer_bots"><span class="swatch tri" style="color:#35c7e6"></span>Bots</label>
+          <label class="check-row"><input type="checkbox" id="layer_elim"><span class="swatch dot" style="background:#ff5a4e"></span>Eliminations</label>
+          <label class="check-row"><input type="checkbox" id="layer_death"><span class="swatch dot" style="background:#b3324f"></span>Deaths</label>
+          <label class="check-row"><input type="checkbox" id="layer_storm"><span class="swatch dot" style="background:#9b6bff"></span>Storm deaths</label>
+          <label class="check-row"><input type="checkbox" id="layer_loot"><span class="swatch dot" style="background:#f2c14e"></span>Loot</label>
+          <label class="check-row"><input type="checkbox" id="layer_grid"><span class="swatch dot" style="background:#3a4250"></span>Grid</label>
+        </div>
+      </div>
+
+      <div id="heatmapPanel" style="display:none">
+        <div class="section">
+          <div class="section-label">CATEGORY</div>
+          <div class="radio-group">
+            <label class="radio-row"><input type="radio" name="heatCategory" value="traffic" checked>High traffic</label>
+            <label class="radio-row"><input type="radio" name="heatCategory" value="elim">Elimination zones</label>
+            <label class="radio-row"><input type="radio" name="heatCategory" value="death">Death zones</label>
+            <label class="radio-row"><input type="radio" name="heatCategory" value="storm">Storm deaths</label>
+            <label class="radio-row"><input type="radio" name="heatCategory" value="loot">Loot pickups</label>
+          </div>
+        </div>
+        <div class="section">
+          <div class="section-label">SCOPE</div>
+          <div class="radio-group">
+            <label class="radio-row"><input type="radio" name="heatScope" value="match" checked>This match</label>
+            <label class="radio-row"><input type="radio" name="heatScope" value="filtered">All matches (current filter)</label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CENTER: map -->
+    <div class="map-area">
+      <div class="map-frame" id="mapFrame">
+        <canvas id="mapCanvas"></canvas>
+        <div class="map-caption" id="mapCaption"></div>
+        <div class="map-empty" id="mapEmpty" style="display:none"></div>
+      </div>
+    </div>
+
+    <!-- RIGHT: details -->
+    <div class="panel right" id="detailsContent"></div>
+
+  </div>
+
+  <div class="transport" id="transport">
+    <button class="play-btn" id="playBtn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></button>
+    <span class="time-label" id="timeNow">0:00</span>
+    <input type="range" id="scrubber" min="0" max="100" value="0" step="1">
+    <span class="time-label" id="timeTotal">0:00</span>
+    <select class="speed-select" id="speedSelect">
+      <option value="5">5×</option>
+      <option value="20" selected>20×</option>
+      <option value="60">60×</option>
+      <option value="150">150×</option>
+    </select>
+  </div>
+
+</div>
+<script src="app.js"></script>
+</body>
+</html>
